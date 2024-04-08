@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <strong>KTDI UTM</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="header" style="margin: 5%">
+    <h3>Hi {{data.login.full_name}}!</h3>
+    <div class="noti-bell">
+      <ion-img src="../../assets/icon/bell.png"></ion-img>
+    </div>
+  </div>
+
+  <!--searchbar-->
+  <app-searchbar></app-searchbar>
+
+  <!--slider-->
+  <swiper-container (slidechange)="swiperSlideChanged($event)" [loop]="true" [pagination]="true">
+    <swiper-slide>
+      <ion-img  class="dewan" src="../../assets/image/dewan.jpg" alt="dewan"></ion-img>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-img class="ktdi" src="../../assets/image/ktdi.jpg" alt="ktdi"></ion-img>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-img class="utm" src="../../assets/image/utm.png" alt="utm"></ion-img>
+    </swiper-slide>
+ </swiper-container>
+
+ <!--services-->
+ <h4>Services</h4>
+ <div class="categories">
+    <ion-button color="primary" (click)="navigate('bookhall', 'forward')">Hall Booking</ion-button>
+    <ion-button color="primary" (click)="navigate('report', 'forward')">Report</ion-button>
+    <ion-button color="primary" (click)="navigate('report-status', 'forward')">Report Status</ion-button>
+    <ion-button color="primary" (click)="navigate('room-registration', 'forward')">Room Registration</ion-button>
+    <ion-button color="primary" (click)="navigate('electric', 'forward')">Register Electrical Appliances</ion-button>
+    <ion-button color="primary" (click)="navigate('feedback', 'forward')">Feedback & Recommendation</ion-button>
+
+  </div>
+
+  <!--hall available-->
+  <h4>Hall Available</h4>
+  <div class="hall-list">
+    <ion-img src="../../assets/image/dewan.jpg" alt="utm"></ion-img>
+    <ion-img src="../../assets/image/dewan.jpg" alt="utm"></ion-img>
+    <ion-img src="../../assets/image/dewan.jpg" alt="utm"></ion-img>
+  </div>
+
+</ion-content>

@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/home'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Electrical Appliances</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-label>Select from the list of appliances</ion-label>
+
+  <!-- Kitchen Appliances -->
+  <ion-grid>
+  <ion-row *ngIf="getAppliancesByCategory('Kitchen').length > 0">
+    <ion-col size="12" size-sm="6">
+      <ion-item-divider>
+        <ion-label>Kitchen Appliances</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let appliance of getAppliancesByCategory('Kitchen')">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="appliance.image" alt="{{ appliance.name }} Image">
+          </ion-thumbnail>
+          <ion-label>{{ appliance.name }}</ion-label>
+          <ion-button slot="end" (click)="selectAppliance(appliance)">
+            {{ appliance.selected ? 'Selected' : 'Select' }}
+          </ion-button>
+        </ion-item>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+
+  <!-- Personal Grooming Appliances -->
+  <ion-row *ngIf="getAppliancesByCategory('Personal').length > 0">
+    <ion-col size="12" size-sm="6">
+      <ion-item-divider>
+        <ion-label>Personal Grooming Appliances</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let appliance of getAppliancesByCategory('Personal')">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="appliance.image" alt="{{ appliance.name }} Image">
+          </ion-thumbnail>
+          <ion-label>{{ appliance.name }}</ion-label>
+          <ion-button slot="end" (click)="selectAppliance(appliance)">
+            {{ appliance.selected ? 'Selected' : 'Select' }}
+          </ion-button>
+        </ion-item>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+
+  <!-- Kitchen Appliances -->
+  <ion-row *ngIf="getAppliancesByCategory('Study').length > 0">
+    <ion-col size="12" size-sm="6">
+      <ion-item-divider>
+        <ion-label>Kitchen Appliances</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let appliance of getAppliancesByCategory('Study')">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="appliance.image" alt="{{ appliance.name }} Image">
+          </ion-thumbnail>
+          <ion-label>{{ appliance.name }}</ion-label>
+          <ion-button slot="end" (click)="selectAppliance(appliance)">
+            {{ appliance.selected ? 'Selected' : 'Select' }}
+          </ion-button>
+        </ion-item>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+
+  <!-- Personal Grooming Appliances -->
+  <ion-row *ngIf="getAppliancesByCategory('Other').length > 0">
+    <ion-col size="12" size-sm="6">
+      <ion-item-divider>
+        <ion-label>Personal Grooming Appliances</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let appliance of getAppliancesByCategory('Other')">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="appliance.image" alt="{{ appliance.name }} Image">
+          </ion-thumbnail>
+          <ion-label>{{ appliance.name }}</ion-label>
+          <ion-button slot="end" (click)="selectAppliance(appliance)">
+            {{ appliance.selected ? 'Selected' : 'Select' }}
+          </ion-button>
+        </ion-item>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+
+  
+  <!-- Total Price and Proceed Button -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px;">
+    <div>Total Price: {{ totalPrice }}</div>
+    <ion-button expand="block" color="primary" (click)="proceed()">Proceed</ion-button>
+  </div>
+</ion-content>
